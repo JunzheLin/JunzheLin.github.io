@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junzhe Lin | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-page="home">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Junzhe Lin</a>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="blog/aws-ec2-beginner.html">技术博客</a></li>
+                    <li><a href="about.html">关于我</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <div class="lang-switch">
+                        <button class="lang-btn">
+                            <span>中文</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <button class="lang-option active" data-lang="zh">中文</button>
+                            <button class="lang-option" data-lang="en">English</button>
+                            <button class="lang-option" data-lang="ja">日本語</button>
+                        </div>
+                    </div>
+                    <button class="theme-toggle" title="切换主题">🌙</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>欢迎来到我的技术博客</h1>
+            <p>分享云原生与分布式系统的学习心得</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="recent-posts">
+            <h2 class="section-title">最近文章</h2>
+            <div class="posts-grid">
+                <article class="post-card">
+                    <span class="post-category">AWS</span>
+                    <h3><a href="blog/aws-ec2-beginner.html">AWS EC2 入门指南：如何在云端启动你的第一台服务器</a></h3>
+                    <p>本篇文章将带你深入了解 Amazon EC2 的核心概念，学习如何配置安全组、选择实例类型，并完成你的第一台云服务器部署。</p>
+                    <div class="post-meta">
+                        <span>📅 2026-03-10</span>
+                        <span>👤 Junzhe Lin</span>
+                    </div>
+                </article>
+
+                <article class="post-card">
+                    <span class="post-category">AWS</span>
+                    <h3><a href="blog/aws-s3-beginner.html">AWS S3 入门指南：云存储完全掌握</a></h3>
+                    <p>深入学习 AWS S3 的存储桶配置、权限管理、版本控制和安全最佳实践，轻松构建可靠的对象存储解决方案。</p>
+                    <div class="post-meta">
+                        <span>📅 2026-03-08</span>
+                        <span>👤 Junzhe Lin</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="categories">
+            <h2 class="section-title">分类浏览</h2>
+            <div class="category-grid">
+                <a href="blog/aws-ec2-beginner.html" class="category-card">
+                    <span class="category-icon">☁️</span>
+                    <h3>云计算</h3>
+                    <p>AWS, 云架构设计</p>
+                </a>
+                <a href="about.html" class="category-card">
+                    <span class="category-icon">👤</span>
+                    <h3>关于我</h3>
+                    <p>个人简介、经历</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Junzhe Lin. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

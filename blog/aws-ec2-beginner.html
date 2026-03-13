@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS EC2 入门指南：如何在云端启动你的第一台服务器</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body data-page="blog">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">Junzhe Lin</a>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="aws-ec2-beginner.html" class="active">技术博客</a></li>
+                    <li><a href="../about.html">关于我</a></li>
+                </ul>
+                <div class="nav-controls">
+                    <div class="lang-switch">
+                        <button class="lang-btn">
+                            <span>中文</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
+                                <path d="M2.5 4.5L6 8L9.5 4.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                            </svg>
+                        </button>
+                        <div class="lang-dropdown">
+                            <button class="lang-option active" data-lang="zh">中文</button>
+                            <button class="lang-option" data-lang="en">English</button>
+                            <button class="lang-option" data-lang="ja">日本語</button>
+                        </div>
+                    </div>
+                    <button class="theme-toggle" title="切换主题">🌙</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post">
+        <header>
+            <span class="post-category">AWS</span>
+            <h1>AWS EC2 入门指南：如何在云端启动你的第一台服务器</h1>
+            <div class="post-meta">
+                <span>📅 2026-03-10</span>
+                <span>👤 Junzhe Lin</span>
+            </div>
+        </header>
+
+        <div class="blog-content">
+            <p>Amazon Elastic Compute Cloud (EC2) 是 AWS 最核心的服务之一，它允许用户在云端快速启动和管理虚拟服务器。本文将带你深入了解 EC2 的核心概念，并完成你的第一台云服务器部署。</p>
+
+            <h2>什么是 EC2？</h2>
+            <p>EC2 是 AWS 提供的可扩展计算服务，它提供了多种类型的虚拟服务器（实例），用户可以根据需求选择不同的计算、内存和存储配置。EC2 的主要特点包括：</p>
+            <ul>
+                <li><strong>弹性伸缩</strong>：根据需求随时增加或减少实例数量</li>
+                <li><strong>多种实例类型</strong>：通用、计算优化、内存优化、存储优化等</li>
+                <li><strong>按需付费</strong>：只为实际使用的计算资源付费</li>
+                <li><strong>安全可靠</strong>：结合 VPC、安全组实现网络隔离</li>
+            </ul>
+
+            <h2>核心概念</h2>
+            
+            <h3>1. 实例类型 (Instance Types)</h3>
+            <p>AWS 提供多种实例类型，满足不同应用场景：</p>
+            <ul>
+                <li><strong>通用型 (t3, m5)</strong>：适合 Web 服务器、开发环境</li>
+                <li><strong>计算优化型 (c5, c6i)</strong>：适合高性能计算批处理</li>
+                <li><strong>内存优化型 (r5, x1e)</strong>：适合大型数据库、内存缓存</li>
+                <li><strong>存储优化型 (i3, d2)</strong>：适合数据仓库、文件系统</li>
+            </ul>
+
+            <h3>2. 安全组 (Security Groups)</h3>
+            <p>安全组是 EC2 的虚拟防火墙，控制进出实例的流量：</p>
+            <ul>
+                <li>默认情况下，所有入站流量被拒绝</li>
+                <li>默认情况下，所有出站流量被允许</li>
+                <li>可以配置规则允许特定端口（如 22 for SSH，80 for HTTP）</li>
+            </ul>
+
+            <h3>3. 密钥对 (Key Pairs)</h3>
+            <p>SSH 密钥对用于安全登录 EC2 实例。创建实例时，需要指定一个密钥对，私钥文件 (.pem) 将在创建后下载，请妥善保管。</p>
+
+            <h2>实战：启动你的第一台 EC2 实例</h2>
+
+            <h3>步骤 1：登录 AWS 控制台</h3>
+            <p>访问 aws.amazon.com，登录后进入 EC2 控制台。</p>
+
+            <h3>步骤 2：启动实例</h3>
+            <ol>
+                <li>点击 "Launch Instance" 按钮</li>
+                <li>为实例命名（如 MyFirstServer）</li>
+                <li>选择操作系统镜像（推荐 Amazon Linux 2 或 Ubuntu）</li>
+                <li>选择实例类型（t2.micro 适合学习，免费套餐可用）</li>
+                <li>创建或选择密钥对</li>
+                <li>配置安全组：添加 SSH (22) 和 HTTP (80) 规则</li>
+            </ol>
+
+            <h3>步骤 3：连接实例</h3>
+            <p>实例启动后，可以通过以下方式连接：</p>
+            <pre><code># 更改密钥文件权限
+chmod 400 your-key.pem
+
+# 连接到实例
+ssh -i your-key.pem ec2-user@your-instance-public-ip</code></pre>
+
+            <h2>最佳实践</h2>
+            <blockquote>
+                <p>在使用 EC2 时，安全是首要考虑因素。以下是一些必须遵守的最佳实践：</p>
+            </blockquote>
+            <ul>
+                <li>始终使用密钥对登录，避免密码登录</li>
+                <li>安全组规则遵循最小权限原则</li>
+                <li>定期备份重要数据</li>
+                <li>使用 IAM 角色管理实例权限</li>
+                <li>开启 CloudWatch 监控，及时发现异常</li>
+            </ul>
+
+            <h2>总结</h2>
+            <p>EC2 是 AWS 云服务的基石，掌握 EC2 的使用方法对于云端开发至关重要。通过本文，你应该已经了解了 EC2 的核心概念，并成功启动了你的第一台云服务器。</p>
+            <p>在后续的文章中，我们将深入探讨 EC2 的高级功能，如自动伸缩、负载均衡、高可用性架构等。</p>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <p>© 2026 Junzhe Lin. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
