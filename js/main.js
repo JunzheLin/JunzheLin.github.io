@@ -522,19 +522,21 @@ function updateBlogContent(slug, lang) {
 
     // Update title
     const titleEl = document.querySelector('.blog-post header h1');
-    if (titleEl) titleEl.textContent = trans.title;
+    if (titleEl && trans.title) titleEl.textContent = trans.title;
 
     // Update category
     const categoryEl = document.querySelector('.blog-post header .post-category');
-    if (categoryEl) categoryEl.textContent = trans.category;
+    if (categoryEl && trans.category) categoryEl.textContent = trans.category;
 
     // Update date
     const dateEl = document.querySelector('.blog-post header .post-meta span:first-child');
-    if (dateEl) dateEl.textContent = '📅 ' + trans.date;
+    if (dateEl && trans.date) dateEl.textContent = '📅 ' + trans.date;
 
-    // Update content
+    // Update content ONLY if full translation exists and is not compressed
     const contentEl = document.querySelector('.blog-post .post-content, .blog-post .blog-content');
-    if (contentEl) contentEl.innerHTML = trans.content;
+    if (contentEl && trans.content && trans.content.length > 500) {
+        contentEl.innerHTML = trans.content;
+    }
 
     // Update back link
     const backLink = document.querySelector('.blog-post .back-link');
@@ -543,7 +545,7 @@ function updateBlogContent(slug, lang) {
     }
 
     // Update page title
-    document.title = trans.title + ' | Junzhe Lin';
+    if (trans.title) document.title = trans.title + ' | Junzhe Lin';
 
     return true;
 }
