@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2020 電気竞赛 F問題 まとめ — OpenMV ビジョンソリューション | Junzhe Lin</title>
+    <title>2020 電気競技 F問題 総括 — OpenMV ビジョンソリューション | Junzhe Lin</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
     <article class="blog-post">
         <header>
             <span class="post-category">組込みソフトウェア</span>
-            <h1>2020 電気竞赛 F問題 まとめ — OpenMV ビジョンソリューション</h1>
+            <h1>2020 電気競技 F問題 総括 — OpenMV ビジョンソリューション</h1>
             <div class="post-meta">
                 <span>📅 2020-09</span>
                 <span>👤 Junzhe Lin</span>
@@ -66,58 +66,58 @@
         </header>
 
         <div class="post-content">
-            <p>リソースを整理上げて公開することにしました。 partly to share the general approach and partly as a記念です。取り組みんだのは2020年電気竞赛F問題：<strong>簡易非接触温度測定と身份認識装置</strong></p>
+            <p>リソースを整理して公開することにしました。一方面是大体の思路を共有し、もう一方面は記念の意味も兼ねています。取り組んだのは2020年電気競技F問題：<strong>簡易非接触温度測定と身份認識装置</strong></p>
 
-            <img src="images/openmv/contest-topic.png" alt="2020 Contest Problem F">
-            <p class="image-caption">2020年電気竞赛F問題</p>
+            <img src="images/openmv/contest-topic.png" alt="2020電気競技F問題">
+            <p class="image-caption">2020 電気競技 F問題</p>
 
             <h2>全体設計</h2>
 
             <h3>ハードウェア選定</h3>
-            <p>機械ビジョンモジュールにはOpenMVを使用しました。試合準備の過程でOpenMVの機能で十分だと思っていたのと、当時K210を注文して学習を開始しても到着までに3日かかってしまうため、调试来不及风险太大，所以决定使用OpenMV。</p>
+            <p>機械ビジョンモジュールにはOpenMVを使用しました。これは一方面は準備過程でOpenMVの機能が十分だと思っていたことと、もう一方面は当時K210を注文して学習を開始しても到着までに3日かかってしまうため、デバッグの時間がないリスクが大きすぎる 그래서OpenMVを使用することにしました。</p>
             
             <img src="images/openmv/openmv-h7plus.png" alt="OpenMV H7 Plus">
             <p class="image-caption">OpenMV H7 Plus</p>
             
-            <p>幸いにも最上位モデルのOpenMV H7 Plusを購入し、无事に問題要求の全タスクを完了しました。</p>
+            <p>幸いにも最上位モデルのOpenMV H7 Plusを購入し、問題要求の全タスクを無事に完了しました。</p>
 
-            <p>温度測定にはMLX90614を使用し、淘宝）で購入したモジュールでI2Cを読んで温度を読み取りました。最後に省一等奖もらえずに省二奖拿了，也是このモジュール不良のせいでした。测试現場で问题が発生し、血の教训！常にPlan B备えましょう！</p>
+            <p>温度測定にはMLX90614を使用し、ある淘宝）のモジュールでI2Cを読んで温度を読み取りました。最後に省一等奖をもらえずに省二奖拿了となったのもこのモジュールのせいです。テスト現場で問題が発生し、血の教訓！常にPlan Bを準備しておきましょう！！</p>
 
-            <p>メインコントローラーにはSTM32C8T6を使用しました。これは赛前准备で既に使用していたためです。他のコントローラーでも可能です。</p>
+            <p>メインコントローラーにはSTM32C8T6を使用しました。これは赛前準備で既に使用していたためです。他のコントローラーでも可能です。</p>
 
-            <p>その他のハードウェアには、OLED（温度しきい値表示）、按钮、有源ブザー、激光ポイントなどが含まれます。</p>
+            <p>その他のハードウェアには、OLED（温度しきい値表示）、ボタン、有源ブザー、激光ポイントなどが含まれます。もはや説明は不要でしょう。</p>
 
-            <p>最終的なPCBレイアウトは以下の通りです：</p>
+            <p>最終的な回路基板設計、デバイスの配置は以下の通りです：</p>
             
-            <img src="images/openmv/pcb-layout.png" alt="PCB Layout">
-            <p class="image-caption">PCBレイアウト</p>
+            <img src="images/openmv/pcb-layout.png" alt="PCBレイアウト">
+            <p class="image-caption">PCB レイアウト</p>
 
             <h3>ソフトウェアフロー</h3>
-            <p>STM32とOpenMVはシリアル通信を行います。各モードに対応する文字を定义し、電源を入れるとOpenMVはループ内で文字を待ち受けます。文字を受信すると对应するモード機能を実行し、結果を返回します。ソフトウェアフローチャートを参照してください：</p>
+            <p>STM32とOpenMVはシリアル通信を行います。各モードに対応する文字を定義し、電源を入れるとOpenMVはループ内で文字を待ち受けます。文字を受信すると対応するモード機能を実行し、結果を返します。詳細はソフトウェアフローチャートを参照してください：</p>
             
-            <img src="images/openmv/software-flow.png" alt="Software Flow Chart">
+            <img src="images/openmv/software-flow.png" alt="ソフトウェアフローチャート">
             <p class="image-caption">ソフトウェアフローチャート</p>
 
             <h2>ビジョンアルゴリズム</h2>
 
-            <p>私は主にOpenMVのビジョン部分のコードを担当していたので、ここではPythonコード作成の経験谈谈吧。</p>
+            <p>私は主にOpenMVのビジョン部分のコードを担当していたので、ここではPythonコード作成の経験について詳しく説明します。</p>
 
-            <p>学習段階で主に参考にした资料はSingTownの2つの関数ライブラリリンクです：</p>
+            <p>学習段階で主に参考にした資料はSingTownの2つの関数ライブラリリンクです：</p>
             <ul>
                 <li><a href="https://book.openmv.cc/" target="_blank">OpenMV 公式ドキュメント</a></li>
                 <li><a href="https://docs.singtown.com/micropython/zh/latest/openmvcam/library/index.html" target="_blank">OpenMV 関数ライブラリ</a></li>
             </ul>
 
-            <h3>異なる顔を識別（身份認識）</h3>
-            <p>题目拿到后第一反应是中国语入门教程里看到的LBP区别不同人脸的应用。于是第一天也按照手册的思路拍照测试了，但是实际效果并不好，而且受光线和背景影响很大，脸还必须填满摄像头，就很不方便。</p>
+            <h3>異なる顔の識別（身份認識）</h3>
+            <p>問題を拿到后的第一反応是中国語入門教程で見たLBPで異なる顔を識別する応用でした。所以第一天按照手册的思路拍照测试しましたが、実際の効果はよくありませんでした。光と背景に大きく影響され、顔をカメラいっぱいに埋めなければならず、とても不便でした。</p>
 
-            <p>后来又发现了特征点算法，运算时间有了很大提升。但还有一个问题就是如果背景拍到的范围过大，那么将从背景提取很多无用的特征点，而要求人保持一定的距离把人脸填满屏幕实在太蠢了。</p>
+            <p>その後、特徴点アルゴリズムを発見し、計算時間が大きく向上しました。しかしまだ一个问题就是：如果背景拍摄到的範囲が大きすぎると、从背景提取很多无用の特徴点になってしまい、一定の距離を保って顔を画面いっぱいに埋めなければならないのは本当に馬鹿馬illusしいです。</p>
 
-            <p><strong>我的方法是：</strong>首先加上了一层人脸识别，将人脸部分局部放大截取出来再拿去提取特征点并进行特征点比对，通过这种方法，就不用对被识别者有很大的要求，实现类似K210一样的功能啦~</p>
+            <p><strong>私の方法は：</strong>まず顔認識を一层追加し、顔の部分を局部的に拡大して切り取り、それから特徴点を抽出し特徴点比較を行います。この方法を使えば、被認識者に大きな要求がなくなり、K210のような機能を実装できます~</p>
 
-            <p>以下是代码：</p>
+            <p>上記の思路についてのコードは以下の通りです：</p>
 
-            <pre><code class="language-python">#画出特征点
+            <pre><code class="language-python">#特徴点を描画
 def draw_keypoints(img, kpts):
     if kpts:
         print(kpts)
@@ -138,6 +138,7 @@ def Distinguish_faces():
     global NUM_SUBJECTS_IMGS
 
     pyb.LED(3).on()
+    #センサーをリセット
     sensor.reset()
     sensor.set_contrast(3)
     sensor.set_gainceiling(16)
@@ -148,22 +149,26 @@ def Distinguish_faces():
     sensor.set_auto_gain(True, gain_db_ceiling = 20.0)
     sensor.skip_frames(time = 500)
 
-    pmax=0
+    pmax=0#検出点とサンプル点のマッチング度、保存が大きいほど近い、最小で初期化
 
-    loop_flag=1
-    type_flag=0
+    loop_flag=1#ループ検出フラグ、顔を検出して識別したら退出
+    type_flag=0#kpts1クラス正解フラグ
     while(loop_flag):
 
+        #histeqを追加、子適応ヒストグラム均衡化、顔が画面いっぱいの时可以提高一点点認識精度
+        #画像中の顔を検出
+        #gamma_corrは画像の色補正用、数値が高いほど画像が明るくなる
         faces = sensor.snapshot().gamma_corr(contrast=1.5).find_features(image.HaarCascade("frontalface"))
         lcd.display(sensor.snapshot())
 
         if faces:
+            #画像中の最大顔を取得
             largest_face = max(faces, key = lambda f: f[3] * f[3])
-            img=sensor.get_fb().crop(roi=largest_face)
+            img=sensor.get_fb().crop(roi=largest_face)#顔を切り取り
 
             kpts1=img.find_keypoints(max_keypoints=90, threshold=0, scale_factor=1.3)
 
-            if(type(kpts1).__name__=='kp_desc'):
+            if(type(kpts1).__name__=='kp_desc'):#kpts1的类型确保找到特征点
                 type_flag=1
             else:
                 print("kpts1 type wrong")
@@ -171,12 +176,14 @@ def Distinguish_faces():
         else:
             print("find no face")
 
+       #画像に顔があり、顔の部分から特徴点が見つかった場合のみ特徴点比較判断
         if type_flag:
             loop_flag=0
 
             lcd.display(img)
             draw_keypoints(img, kpts1)
             num=0
+            #特徴点比較
             kpts2=None
             feature_values=[0]
             for s in range(1, NUM_SUBJECTS+1):
@@ -191,6 +198,7 @@ def Distinguish_faces():
                 pmax = find_max(pmax, match_count, s)
                 feature_values.append(match_count)
 
+            #平均値を計算
             feature_sum=0
             for feature_value in feature_values:
                 print("feature_value is %d" % feature_value)
@@ -199,16 +207,18 @@ def Distinguish_faces():
             average=feature_sum/n
             print("average is %d" % average)
 
+            #分散を計算
             pow_sum=0
             for feature_value in feature_values:
                 if feature_value==0:
                     feature_value=average
-                print("variance:%d" % math.pow(feature_value-average,2))
+                print("此项分散は%d" % math.pow(feature_value-average,2))
                 pow_sum+=math.pow(feature_value-average,2)
 
             variance=pow_sum/n
             print("variance is %d" % variance)
 
+            #分散で判断、3人の結果が違えば分散は大きく、結果は信頼性が高い
             if variance<1500:
                 uart.write(str(0))
                 print("unknown person !")
@@ -219,25 +229,25 @@ def Distinguish_faces():
     lcd.clear()
     pyb.LED(3).off()</code></pre>
 
-            <p>コードには还有很多其他细节。例如最后加了方差计算，使得识别陌生人脸更准确。如果拍摄的特征点与内存中存储的三个人的特征点比对结果都差不多（方差小），那就很可能不是三个人中的一个人，而是陌生人。这个方差阈值是经过实践得出的，根据光线可能需要不同调整。</p>
+            <p>もちろんコードには还有很多其他细节。例えば最後に分散計算を追加しましたが、これは见知らぬ顔の识别をより正确にするためです。つまり、撮影された特徴点とメモリに保存された3人の特徴点との比较結果がほぼ同じで、分散が小さい場合、それは3人のうちの一人ではなく、見知らぬ人である可能性が高いです。この分散閾値は実践から得出されたもので、光によって调整が必要な場合があります。</p>
 
-            <p>总结（速成版本，系统学习理论请参考其他大佬）：</p>
+            <p>总结一下（速成版本、系统学习理论请参考其他大佬）：</p>
             <ul>
-                <li><strong>LBP 局部二值模式：</strong> 采集一定数量的模板 pgm 图片数据。进行人脸识别时，将读取到的图片与模板数据库进行相似度比较，从中选取最高相似度的模板，从而确定被测人信息。</li>
-                <li><strong>特征点 AGAST 算法：</strong> 多尺度快速角点特征提取算法。提前保存目标特征 orb 文件。进行人脸识别时，提取目标的特征点与特征点库进行匹配得出结果，经过方差计算判断可信度后得出结果。</li>
+                <li><strong>LBP 局部二值模式：</strong> 一定数量テンプレートpgm画像データを収集。人脸認識時に、読み取った画像とテンプレートデータベースを類似度比較し、もっとも高い類似度のテンプレートを選択し、被测试人情報を确定。</li>
+                <li><strong>特徴点AGASTアルゴリズム：</strong> マルチスケール高速コーナー特徴抽出アルゴリズム。前もって目標特徴orbファイルを保存。人脸認識時に、目標の特徴点を抽出し特徴点ライブラリとマッチングして结果を出し、分散計算を経て信頼度を判断して结果を得出。</li>
             </ul>
 
-            <h3>口罩识别</h3>
-            <p>两种模型引申出的两种不同方法：</p>
+            <h3>マスク認識</h3>
+            <p>2つのモデルから衍生的2つの别々の方法：</p>
             <ul>
-                <li><strong>第一种：</strong> 用 Haar 算子，将 XML 类型的文件转为 cascade 格式，然后识别。缺点是少量样本训练的口罩模型在识别过程中准确度较低。</li>
-                <li><strong>第二种：</strong> 使用内置的 TFLite 神经网络框架运行。现在 OpenMV 手册已经有 TFLite 口罩识别模型，识别结果大幅提高。</li>
+                <li><strong>第一种：</strong> Haar演算子を使用し、XMLタイプファイルをcascadeフォーマットに変換してから認識。欠点は少量のサンプルでトレーニングしたマスクモデルの認識精度が低いこと。</li>
+                <li><strong>第二种：</strong> 内蔵のTFLiteニューラルネットワークフレームワークを使用。现在OpenMV手册已经有了TFLite口罩认识模型、認識精度大幅向上。</li>
             </ul>
 
-            <h3>现场学习</h3>
-            <p>由于使用特征点，现场学习不过就是把拍摄、提取特征点、文件保存放到现场进行罢了。在我这套逻辑下现场学习并没有多出多少难度，我们现场拍摄20张够够的了。</p>
+            <h3>现场学習</h3>
+            <p>特徴点を使用するため、现场学習は撮影、特徴点抽出、ファイル保存を現場で行うだけです。私のロジックでは现场学習は難易度が上がらず、现场で20枚撮影すれば十分でした。</p>
 
-            <pre><code class="language-python">#特征学习
+            <pre><code class="language-python">#特徴学習
 def machine_learning():
     sensor.reset()
     sensor.set_contrast(3)
@@ -260,6 +270,7 @@ def machine_learning():
     kpts1 = None
 
     while(p_num):
+        #红灯亮
         pyb.LED(1).on()
         faces = sensor.snapshot().gamma_corr(contrast=1.5).find_features(image.HaarCascade("frontalface"))
         lcd.display(sensor.snapshot())
@@ -297,23 +308,23 @@ def machine_learning():
     lcd.clear()
     uart.write(str("f"))</code></pre>
 
-            <h3>其他优化算法</h3>
-            <p>为了让OpenMV能获得好的结果真的很努力呢哈哈哈</p>
+            <h3>其他最適化アルゴリズム</h3>
+            <p>为了OpenMV能获得好的结果真的很努力呢哈哈哈</p>
             <ul>
-                <li><strong>直方图均值化：</strong> <code>.histeq(adaptive=True, clip_limit=3)</code> 直方图均值化后，灰度直方图几乎覆盖了整个灰度的取值范围，除了个别灰度值的个数较为突出，整个灰度值分布近似于均匀分布，经过这样处理的图像将具有较大的灰度动态范围和较高的对比度，图像的细节更为丰富。</li>
-                <li><strong>局部放大后识别：</strong> <code>sensor.get_fb().crop(roi=largest_face)</code> 首先利用固件库自带人脸Haar模型进行识别人脸，识别后截取人脸部分再进行特征点比对，这将提高精确度并减少运算量。</li>
-                <li><strong>自动增益：</strong> <code>sensor.snapshot().gamma_corr(contrast=1.5)</code> 伽马校正用于修正图像中色彩和对比度，数值越高图像越亮</li>
+                <li><strong>ヒストグラム均衝化：</strong> <code>.histeq(adaptive=True, clip_limit=3)</code> ヒストグラム均衝化後、グレースケールヒストグラムは Entire取る范围をカバーし、そして一部のグレースケール値の個数が際立つ之外、全体的なグレースケール分布は均一分布に 近，这样处理的画像 はより大きなグレーンダイナミックレンジと高いコントラストを持ち、画像の詳細がより豊かになります。</li>
+                <li><strong>局部拡大後認識：</strong> <code>sensor.get_fb().crop(roi=largest_face)</code> まずファームウェアライブラリ自带の顔Haarモデル进行识别人脸之后，切り取った顔部分に対して特徴点比較を行います。これにより精度が向上し計算量が減少します。</li>
+                <li><strong>自動ゲイン：</strong> <code>sensor.snapshot().gamma_corr(contrast=1.5)</code> ガンマ補正は画像の色とコントラストの修正に使用され、数値が高いほど画像が明るくなります</li>
             </ul>
 
-            <p>总的来说那两天是把Micropython函数库翻了一遍，能试的都一个个试过去了，这几个是对结果确实有帮助的函数。</p>
+            <p>总的来说那两天是把Micropython函数库翻了一遍，能试的都一个个试过去了，这几个是对结果确实有帮助的関数</p>
 
-            <h2>总结</h2>
-            <p>我们最终获得了福建省二等奖。由于送测的时候90614模块出了问题，测温爆炸，反而其他部分包括视觉部分都是满分，遗憾没有省一，就当吸取要准备Plan B的教训了害。</p>
+            <h2>まとめ</h2>
+            <p>最終的に福建省二等奖を獲得しました。テスト時に90614モジュールが問題を起こし、温度測定が失败的反而其他部分（ビジョン部分）は満点でした。省一等奖を取れなかったのはPlan Bを準備教训として受け止めましょう。</p>
 
-            <p>关于OpenMV部分代码，主要内容都在上面一段一段都po出来了，口罩识别见链接官方有。以上都写出了要点，足够有能力的同学可以复现。</p>
+            <p>OpenMV部分のコードについては、主な内容は上記に全て記載されています。マスク認識はリンク先の公式を参照してください。以上の要点を書いたので、能力のある学生は再現できるはずです。</p>
 
             <blockquote>
-                <p><strong>欢迎在评论区学习讨论，遇到问题的解决和互相交流分享经验，不提供硬件和软件工程代码！！</strong></p>
+                <p><strong>コメント欄で学習や議論、質問の解決や経験の共有をしましょう！ハードウェアとソフトウェアエンジニアリングコードは提供しません！！</strong></p>
             </blockquote>
         </div>
 
