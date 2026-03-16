@@ -69,6 +69,24 @@
             flex: 1;
             min-width: 0;
         }
+        .about-main .intro-block {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        .about-main .intro-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text-color);
+        }
+        .about-main .intro-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
         .about-main .content-block {
             background: var(--bg-card);
             border-radius: 12px;
@@ -108,11 +126,21 @@
         .about-main .awards-list li {
             margin-bottom: 8px;
             color: var(--text-light);
+            line-height: 1.5;
         }
         .about-main .interests-list li:last-child,
         .about-main .skills-list li:last-child,
         .about-main .awards-list li:last-child {
             margin-bottom: 0;
+        }
+        .about-main .skills-category {
+            margin-bottom: 14px;
+        }
+        .about-main .skills-category:last-child {
+            margin-bottom: 0;
+        }
+        .about-main .skills-category strong {
+            color: var(--text-color);
         }
         @media (max-width: 768px) {
             .about-layout {
@@ -176,40 +204,50 @@
             </aside>
 
             <div class="about-main">
+                <div class="intro-block">
+                    <div class="intro-title" data-i18n="intro.title">Hello, this is Junzhe</div>
+                    <div class="intro-text" data-i18n="intro.text">Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer. 我正在东京寻找IT相关Entry-Level的工作，目前日语N3并在努力学习中，如果你有任何工作机会欢迎联系我！</div>
+                </div>
+
                 <div class="content-block">
-                    <h2>👨‍🎓 教育背景</h2>
+                    <h2 data-i18n="education.title">👨‍🎓 教育背景</h2>
                     <div class="timeline">
                         <div class="timeline-item">
-                            <h3>工学硕士 - 通信工程</h3>
+                            <h3 data-i18n="education.master">工学硕士 - 通信工程</h3>
                             <p class="timeline-info">厦门大学 (XMU) | 2022 - 2025</p>
                         </div>
                         <div class="timeline-item">
-                            <h3>工学学士 - 电子信息工程</h3>
+                            <h3 data-i18n="education.bachelor">工学学士 - 电子信息工程</h3>
                             <p class="timeline-info">福建师范大学 | 2018 - 2022</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="content-block">
-                    <h2>🔬 研究方向</h2>
+                    <h2 data-i18n="research.title">🔬 研究方向</h2>
                     <ul class="interests-list">
-                        <li>云计算 (Cloud Computing)</li>
-                        <li>分布式系统 (Distributed Systems)</li>
-                        <li>机器学习 (Machine Learning)</li>
+                        <li data-i18n="research.cloud">云计算 (Cloud Computing)</li>
+                        <li data-i18n="research.distributed">分布式系统 (Distributed Systems)</li>
+                        <li data-i18n="research.ml">机器学习 (Machine Learning)</li>
                     </ul>
                 </div>
 
                 <div class="content-block">
-                    <h2>🛠️ 技术技能</h2>
+                    <h2 data-i18n="skills.title">🛠️ 技术技能</h2>
                     <ul class="skills-list">
-                        <li><strong>编程:</strong> Python, Go, Java, SQL</li>
-                        <li><strong>云与 DevOps:</strong> AWS, Docker, Kubernetes</li>
-                        <li><strong>工具:</strong> Linux, Git</li>
+                        <li class="skills-category"><strong data-i18n="skills.multilingual">Multilingual:</strong> <span data-i18n="skills.multilingual_content">English(IELTS 7.0), Japanese(N3 and learning...), Mandarin(native)</span></li>
+                        <li class="skills-category"><strong data-i18n="skills.coding">Coding Languages:</strong> <span>Python, C/C++, SQL, Java</span></li>
+                        <li class="skills-category"><strong>Cloud:</strong> <span>AWS, Tencent Cloud, Docker</span></li>
+                        <li class="skills-category"><strong>Developer Tools/Frameworks:</strong> <span>Git, Anaconda, Pycharm, VS Code, Django</span></li>
+                        <li class="skills-category"><strong data-i18n="skills.embedded">Embedded Development:</strong> <span>Linux (Ubuntu), STM32, JetsonNX</span></li>
+                        <li class="skills-category"><strong data-i18n="skills.ml">Machine Learning:</strong> <span>PyTorch, TensorFlow</span></li>
+                        <li class="skills-category"><strong data-i18n="skills.doc">Document:</strong> <span>LaTeX, MarkDown, Office</span></li>
+                        <li class="skills-category"><strong data-i18n="skills.soft">Soft Skills:</strong> <span data-i18n="skills.soft_content">Communication, Problem-solving, Adaptability, Collaboration</span></li>
                     </ul>
                 </div>
 
                 <div class="content-block">
-                    <h2>📄 学术论文</h2>
+                    <h2 data-i18n="papers.title">📄 学术论文</h2>
                     <ul class="interests-list">
                         <li><strong>"DAPRE: A Novel Data-Aware Peering Replication Scheme for Edge Storage"</strong> — IEEE Transactions on Cloud Computing (2024)</li>
                         <li><strong>"Edge-Cache: A Distributed Edge Caching System for Edge Computing Environments"</strong> — IEEE ICWS (2024)</li>
@@ -217,11 +255,11 @@
                 </div>
 
                 <div class="content-block">
-                    <h2>🏆 荣誉奖项</h2>
+                    <h2 data-i18n="awards.title">🏆 荣誉奖项</h2>
                     <ul class="awards-list">
-                        <li>国家奖学金 (前 2%, 2021)</li>
-                        <li>全国大学生数学建模竞赛一等奖 (2022)</li>
-                        <li>Dean's List (2019-2023)</li>
+                        <li data-i18n="awards.national">国家奖学金 (前 2%, 2021)</li>
+                        <li data-i18n="awards.math">全国大学生数学建模竞赛一等奖 (2022)</li>
+                        <li data-i18n="awards.dean">Dean's List (2019-2023)</li>
                     </ul>
                 </div>
             </div>
@@ -232,6 +270,166 @@
         <p>© 2026 Junzhe Lin. All rights reserved.</p>
     </footer>
 
+    <script>
+    const i18n = {
+        zh: {
+            intro: {
+                title: "Hello, this is Junzhe",
+                text: "Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer. 我正在东京寻找IT相关Entry-Level的工作，目前日语N3并在努力学习中，如果你有任何工作机会欢迎联系我！"
+            },
+            education: {
+                title: "👨‍🎓 教育背景",
+                master: "工学硕士 - 通信工程",
+                bachelor: "工学学士 - 电子信息工程"
+            },
+            research: {
+                title: "🔬 研究方向",
+                cloud: "云计算 (Cloud Computing)",
+                distributed: "分布式系统 (Distributed Systems)",
+                ml: "机器学习 (Machine Learning)"
+            },
+            skills: {
+                title: "🛠️ 技术技能",
+                multilingual: "Multilingual:",
+                multilingual_content: "English(IELTS 7.0), Japanese(N3 and learning...), Mandarin(native)",
+                coding: "Coding Languages:",
+                embedded: "Embedded Development:",
+                ml: "Machine Learning:",
+                doc: "Document:",
+                soft: "Soft Skills:",
+                soft_content: "Communication, Problem-solving, Adaptability, Collaboration"
+            },
+            papers: {
+                title: "📄 学术论文"
+            },
+            awards: {
+                title: "🏆 荣誉奖项",
+                national: "国家奖学金 (前 2%, 2021)",
+                math: "全国大学生数学建模竞赛一等奖 (2022)",
+                dean: "Dean's List (2019-2023)"
+            }
+        },
+        en: {
+            intro: {
+                title: "Hello, this is Junzhe",
+                text: "Aloha! I'm Junzhe Lin, from Fujian, now in Tokyo. IT System Builder and Adventurer. I'm looking for IT entry-level jobs in Tokyo. Currently Japanese N3 and still learning. Feel free to contact me if you have any job opportunities!"
+            },
+            education: {
+                title: "👨‍🎓 Education",
+                master: "M.Eng. - Communication Engineering",
+                bachelor: "B.Eng. - Electronic Information Engineering"
+            },
+            research: {
+                title: "🔬 Research Interests",
+                cloud: "Cloud Computing",
+                distributed: "Distributed Systems",
+                ml: "Machine Learning"
+            },
+            skills: {
+                title: "🛠️ Technical Skills",
+                multilingual: "Multilingual:",
+                multilingual_content: "English(IELTS 7.0), Japanese(N3 and learning...), Mandarin(native)",
+                coding: "Coding Languages:",
+                embedded: "Embedded Development:",
+                ml: "Machine Learning:",
+                doc: "Document:",
+                soft: "Soft Skills:",
+                soft_content: "Communication, Problem-solving, Adaptability, Collaboration"
+            },
+            papers: {
+                title: "📄 Publications"
+            },
+            awards: {
+                title: "🏆 Awards",
+                national: "National Scholarship (Top 2%, 2021)",
+                math: "National College Mathematical Modeling Competition - First Prize (2022)",
+                dean: "Dean's List (2019-2023)"
+            }
+        },
+        ja: {
+            intro: {
+                title: "Hello, this is Junzhe",
+                text: "Aloha！私は林俊哲、福建出身、東京在住。ITシステムビルダー＆アドベンチャー。東京都内でIT関連のEntry-Level職を探しています。今は日本語N3レベルで勉強中なので、いつでもご連絡ください！"
+            },
+            education: {
+                title: "👨‍🎓 学歴",
+                master: "工学修士 - 通信工学",
+                bachelor: "工学学士 - 電子情報工学"
+            },
+            research: {
+                title: "🔬 研究分野",
+                cloud: "クラウドコンピューティング (Cloud Computing)",
+                distributed: "分散システム (Distributed Systems)",
+                ml: "機械学習 (Machine Learning)"
+            },
+            skills: {
+                title: "🛠️ 技術スキル",
+                multilingual: "Multilingual:",
+                multilingual_content: "English(IELTS 7.0), Japanese(N3 and learning...), Mandarin(native)",
+                coding: "Coding Languages:",
+                embedded: "Embedded Development:",
+                ml: "Machine Learning:",
+                doc: "Document:",
+                soft: "Soft Skills:",
+                soft_content: "Communication, Problem-solving, Adaptability, Collaboration"
+            },
+            papers: {
+                title: "📄 学術論文"
+            },
+            awards: {
+                title: "🏆 受賞歴",
+                national: "国家奨学金 (上位2%, 2021)",
+                math: "全国大学生数学建模コンテスト 一等奖 (2022)",
+                dean: "Dean List (2019-2023)"
+            }
+        }
+    };
+
+    function setLanguage(lang) {
+        // Update HTML lang attribute
+        document.documentElement.lang = lang;
+        
+        // Update all i18n elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const keys = el.getAttribute('data-i18n').split('.');
+            let value = i18n[lang];
+            for (const key of keys) {
+                value = value?.[key];
+            }
+            if (value) {
+                el.textContent = value;
+            }
+        });
+        
+        // Save preference
+        localStorage.setItem('lang', lang);
+        
+        // Update dropdown button text
+        const langBtn = document.querySelector('.lang-btn span');
+        if (langBtn) {
+            const langNames = { zh: '中文', en: 'English', ja: '日本語' };
+            langBtn.textContent = langNames[lang];
+        }
+        
+        // Update active state in dropdown
+        document.querySelectorAll('.lang-option').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('lang') || 'zh';
+        setLanguage(savedLang);
+        
+        // Language switcher
+        document.querySelectorAll('.lang-option').forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+    });
+    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
