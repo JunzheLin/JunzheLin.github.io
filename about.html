@@ -206,7 +206,7 @@
             <div class="about-main">
                 <div class="intro-block">
                     <div class="intro-title" data-i18n="intro.title">Hello, this is Junzhe</div>
-                    <div class="intro-text" data-i18n="intro.text">Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer。\n我正在东京寻找IT相关Entry-Level的工作，如果你有任何工作机会，欢迎联系我！</div>
+                    <div class="intro-text" data-i18n="intro.text">Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer。<br><br>我正在东京寻找IT相关的Entry-Level/新股/第二新股的工作，如果您认为有任何适合我的工作机会，欢迎随时联系我！</div>
                 </div>
 
                 <div class="content-block">
@@ -275,7 +275,7 @@
         zh: {
             intro: {
                 title: "Hello, this is Junzhe",
-                text: "Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer。\n我正在东京寻找IT相关Entry-Level的工作，如果你有任何工作机会，欢迎联系我！"
+                text: "Aloha！我是林俊哲，福建人，在东京。IT System Builder and Adventurer。<br><br>我正在东京寻找IT相关的Entry-Level/新股/第二新股的工作，如果您认为有任何适合我的工作机会，欢迎随时联系我！"
             },
             education: {
                 title: "👨‍🎓 教育背景",
@@ -312,7 +312,7 @@
         en: {
             intro: {
                 title: "Hello, this is Junzhe",
-                text: "Aloha! I'm Junzhe Lin, from Fujian, now in Tokyo. IT System Builder and Adventurer.\nI'm looking for IT entry-level jobs in Tokyo. Feel free to contact me if you have any job opportunities!"
+                text: "Aloha! I'm Junzhe Lin, from Fujian, now in Tokyo. IT System Builder and Adventurer.<br><br>I am currently seeking Entry-Level/New Graduate/Mid-career IT positions in Tokyo. If you think there are any suitable job opportunities for me, please feel free to contact me anytime!"
             },
             education: {
                 title: "👨‍🎓 Education",
@@ -349,7 +349,7 @@
         ja: {
             intro: {
                 title: "Hello, this is Junzhe",
-                text: "Aloha！私は林俊哲、福建出身、東京在住。ITシステムビルダー＆アドベンチャー。\n東京都内でIT関連のEntry-Level職を探しているので名人联系方式！"
+                text: "Aloha！私は林俊哲、福建出身、東京在住。ITシステムビルダー＆アドベンチャー。<br><br>私は現在、東京でIT関連のEntry-Level・新股・第二新股の仕事を探しております。If you think there are suitable job opportunities for me, please feel free to contact me!"
             },
             education: {
                 title: "👨‍🎓 学歴",
@@ -397,7 +397,8 @@
                 value = value?.[key];
             }
             if (value) {
-                el.textContent = value;
+                // Use innerHTML to support <br> tags for line breaks
+                el.innerHTML = value;
             }
         });
         
