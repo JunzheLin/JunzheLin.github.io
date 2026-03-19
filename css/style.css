@@ -1254,10 +1254,16 @@ pre code {
    Visitor Map Section
    ============================================ */
 .visitor-globe {
-    text-align: center;
-    padding: 60px 20px 80px;
+    padding: 60px 0 80px;
     border-top: 1px solid var(--border-color, #e0e0e0);
     margin-top: 40px;
+}
+
+.visitor-globe-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
 }
 
 .visitor-globe .section-title {
@@ -1279,11 +1285,13 @@ pre code {
     min-height: 160px;
 }
 
-/* MapMyVisitors widget sizing */
+/* MapMyVisitors widget sizing — responsive */
 .globe-container canvas,
 .globe-container img,
 .globe-container iframe {
     max-width: 100% !important;
+    width: 100% !important;
     display: block;
     margin: 0 auto;
+    overflow: hidden;
 }
