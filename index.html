@@ -97,27 +97,19 @@
             </div>
         </section>
 
-        <section class="categories">
-            <h2 class="section-title" data-i18n="categories.title">Categories</h2>
-            <div class="category-grid">
-                <a href="blog/index.html" class="category-card">
-                    <span class="category-icon">☁️</span>
-                    <h3 data-i18n="categories.cloud.title">Cloud Computing</h3>
-                    <p data-i18n="categories.cloud.desc">AWS, Cloud Architecture</p>
-                </a>
-                <a href="blog/index.html" class="category-card">
-                    <span class="category-icon">🔧</span>
-                    <h3 data-i18n="categories.embedded.title">Embedded Software</h3>
-                    <p data-i18n="categories.embedded.desc">Hardware, NFC, IoT</p>
-                </a>
-                <a href="about.html" class="category-card">
-                    <span class="category-icon">👤</span>
-                    <h3 data-i18n="categories.about.title">About Me</h3>
-                    <p data-i18n="categories.about.desc">Profile, Experience</p>
-                </a>
-            </div>
-        </section>
     </main>
+
+    <!-- Visitor Globe -->
+    <section class="visitor-globe" id="visitor-globe">
+        <h2 class="section-title" data-i18n="globe.title">Visitor Globe</h2>
+        <p class="globe-subtitle" data-i18n="globe.subtitle">Real-time visits from around the world</p>
+        <!-- RevolverMaps 3D Globe -->
+        <!-- Replace YOUR_KEY with your actual RevolverMaps public key -->
+        <!-- Get your free key at: https://revolvermaps.com -->
+        <div class="globe-container" id="globe-container">
+            <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=YOUR_REVOLVERMAPS_KEY&m=0&c=ff6b6b&cr1=ffffff&f=arial&l=33" async="async"></script>
+        </div>
+    </section>
 
     <footer class="footer">
         <p>© 2026 Junzhe Lin. All rights reserved.</p>
@@ -141,6 +133,10 @@
             },
             recent: {
                 title: "最近文章"
+            },
+            globe: {
+                title: "访客地球",
+                subtitle: "实时显示全球访客位置"
             },
             posts: {
                 "aws-ec2": {
@@ -198,6 +194,10 @@
             recent: {
                 title: "Recent Posts"
             },
+            globe: {
+                title: "Visitor Globe",
+                subtitle: "Real-time visits from around the world"
+            },
             posts: {
                 "aws-ec2": {
                     category: "AWS",
@@ -254,6 +254,10 @@
             recent: {
                 title: "最近の投稿"
             },
+            globe: {
+                title: "訪問者グローブ",
+                subtitle: "世界中からリアルタイムでアクセス"
+            },
             posts: {
                 "aws-ec2": {
                     category: "AWS",
@@ -275,21 +279,6 @@
                     desc: "PN532 モジュールの動作原理を詳しく解説。Arduino/ESP32でNFCカードの読み取り、書き込み、シミュレーションを実装。",
                     date: "📅 2020-05",
                     link: "blog/pn532-ja.html"
-                }
-            },
-            categories: {
-                title: "カテゴリー",
-                cloud: {
-                    title: "クラウドコンピューティング",
-                    desc: "AWS、クラウドアーキテクチャ"
-                },
-                embedded: {
-                    title: "組み込みソフトウェア",
-                    desc: "ハードウェア、NFC、IoT"
-                },
-                about: {
-                    title: "自分について",
-                    desc: "プロフィール、経歴"
                 }
             }
         }

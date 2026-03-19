@@ -1249,3 +1249,38 @@ pre code {
     font-size: 14px;
     line-height: 1.1;
 }
+
+/* ============================================
+   Visitor Globe Section
+   ============================================ */
+.visitor-globe {
+    text-align: center;
+    padding: 60px 20px 80px;
+    border-top: 1px solid var(--border-color, #e0e0e0);
+    margin-top: 40px;
+}
+
+.visitor-globe .section-title {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.globe-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted, #888);
+    margin-bottom: 30px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.globe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+/* RevolverMaps iframe sizing */
+.globe-container iframe,
+.globe-container canvas {
+    max-width: 100% !important;
+}
