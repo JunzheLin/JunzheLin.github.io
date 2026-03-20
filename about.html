@@ -107,13 +107,23 @@
         .about-main .timeline-item:last-child {
             margin-bottom: 0;
         }
-        .about-main .timeline-item h3 {
-            font-size: 1rem;
-            margin-bottom: 4px;
+        .about-main .timeline-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 16px;
         }
-        .about-main .timeline-item .timeline-info {
+        .about-main .timeline-school {
+            font-size: 1rem;
+            color: var(--text-color);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+        .about-main .timeline-period {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
         .about-main .interests-list,
         .about-main .skills-list,
@@ -223,12 +233,28 @@
                     <h2 data-i18n="education.title">👨‍🎓 教育背景</h2>
                     <div class="timeline">
                         <div class="timeline-item">
-                            <h3 data-i18n="education.master">工学硕士 - 通信工程</h3>
-                            <p class="timeline-info">厦门大学 (XMU) | 2022 - 2025</p>
+                            <div class="timeline-row">
+                                <span class="timeline-school">
+                                    <span data-i18n="education.xmu">厦门大学 (XMU)</span>
+                                    <span data-i18n="education.xmu-info">（中国，QS 341）</span>
+                                </span>
+                                <span class="timeline-period" data-i18n="education.master-period">2022 – 2025</span>
+                            </div>
+                            <div class="timeline-row">
+                                <span class="timeline-school" data-i18n="education.master">工学硕士 - 通信工程</span>
+                            </div>
                         </div>
                         <div class="timeline-item">
-                            <h3 data-i18n="education.bachelor">工学学士 - 电子信息工程</h3>
-                            <p class="timeline-info">福建师范大学 (FJNU) | 2018 - 2022</p>
+                            <div class="timeline-row">
+                                <span class="timeline-school">
+                                    <span data-i18n="education.fjnu">福建师范大学 (FJNU)</span>
+                                    <span data-i18n="education.fjnu-info">（中国）</span>
+                                </span>
+                                <span class="timeline-period" data-i18n="education.bachelor-period">2018 – 2022</span>
+                            </div>
+                            <div class="timeline-row">
+                                <span class="timeline-school" data-i18n="education.bachelor">工学学士 - 电子信息工程</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -285,7 +311,13 @@
             education: {
                 title: "👨‍🎓 教育背景",
                 master: "工学硕士 - 通信工程",
-                bachelor: "工学学士 - 电子信息工程"
+                bachelor: "工学学士 - 电子信息工程",
+                xmu: "厦门大学 (XMU)",
+                "xmu-info": "（中国，QS 341）",
+                fjnu: "福建师范大学 (FJNU)",
+                "fjnu-info": "（中国）",
+                "master-period": "2022 – 2025",
+                "bachelor-period": "2018 – 2022"
             },
             research: {
                 title: "🔬 研究方向",
@@ -322,7 +354,13 @@
             education: {
                 title: "👨‍🎓 Education",
                 master: "M.Eng. - Communication Engineering",
-                bachelor: "B.Eng. - Electronic Information Engineering"
+                bachelor: "B.Eng. - Electronic Information Engineering",
+                xmu: "Xiamen University (XMU)",
+                "xmu-info": " (China, QS 341)",
+                fjnu: "Fujian Normal University (FJNU)",
+                "fjnu-info": " (China)",
+                "master-period": "2022 – 2025",
+                "bachelor-period": "2018 – 2022"
             },
             research: {
                 title: "🔬 Research Interests",
@@ -359,7 +397,13 @@
             education: {
                 title: "👨‍🎓 学歴",
                 master: "工学修士 - 通信工学",
-                bachelor: "工学学士 - 電子情報工学"
+                bachelor: "工学学士 - 電子情報工学",
+                xmu: "厦门大学 (XMU)",
+                "xmu-info": "（中国、QS 341）",
+                fjnu: "福建师范大学 (FJNU)",
+                "fjnu-info": "（中国）",
+                "master-period": "2022 – 2025",
+                "bachelor-period": "2018 – 2022"
             },
             research: {
                 title: "🔬 研究分野",
