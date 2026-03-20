@@ -44,13 +44,13 @@
     --code-bg: #0d0d1a;
 }
 
-/* Language-specific accent colors */
-body.lang-ja { --page-accent: #e74c3c; }
-body.lang-en { --page-accent: #3498db; }
+/* Language-specific accent colors — unified, no longer language-dependent */
+body.lang-ja { --page-accent: #1e5f8a; }
+body.lang-en { --page-accent: #1e5f8a; }
 body.lang-zh { --page-accent: #1e5f8a; }
 
-body.lang-ja[data-theme="dark"] { --page-accent: #c0392b; }
-body.lang-en[data-theme="dark"] { --page-accent: #2980b9; }
+body.lang-ja[data-theme="dark"] { --page-accent: #1e5f8a; }
+body.lang-en[data-theme="dark"] { --page-accent: #1e5f8a; }
 body.lang-zh[data-theme="dark"] { --page-accent: #1e5f8a; }
 
 body {
