@@ -1,0 +1,100 @@
+{
+  "posts": [
+    {
+      "id": "aws-ec2",
+      "category": "cloud",
+      "categoryIcon": "☁️",
+      "files": {
+        "zh": "aws-ec2-beginner.html",
+        "en": "aws-ec2-en.html",
+        "ja": "aws-ec2-ja.html"
+      },
+      "zh": {
+        "title": "AWS EC2 入门指南：如何在云端启动你的第一台服务器",
+        "desc": "本篇文章将带你深入了解 Amazon EC2 的核心概念，学习如何配置安全组、选择实例类型，并完成你的第一台云服务器部署。",
+        "categoryName": "云计算",
+        "tag": "AWS",
+        "date": "2026-03-10"
+      },
+      "en": {
+        "title": "AWS EC2 Getting Started: Launch Your First Cloud Server",
+        "desc": "This article will take you through the core concepts of EC2 and help you deploy your first cloud server.",
+        "categoryName": "Cloud Computing",
+        "tag": "AWS",
+        "date": "2026-03-10"
+      },
+      "ja": {
+        "title": "AWS EC2 入門ガイド：クラウドで最初のサーバーを起動する方法",
+        "desc": "Amazon EC2 のコア概念、セキュリティグループの設定、インスタンスタイプの選択などを詳しく解説します。",
+        "categoryName": "クラウドコンピューティング",
+        "tag": "AWS",
+        "date": "2026-03-10"
+      },
+      "keywords": ["AWS", "EC2", "云服务器", "云计算", "cloud", "server", "インスタンス", "サーバー", "安全组", "セキュリティグループ"]
+    },
+    {
+      "id": "openmv",
+      "category": "embedded",
+      "categoryIcon": "🔧",
+      "files": {
+        "zh": "openmv-electric-contest.html",
+        "en": "openmv-en.html",
+        "ja": "openmv-ja.html"
+      },
+      "zh": {
+        "title": "2020 电赛 F 题总结回顾 — OpenMV 实现视觉方案",
+        "desc": "2020 年全国大学生电子设计竞赛 F 题《简易无接触温度测量与身份识别装置》方案总结，使用 OpenMV H7 Plus 实现人脸识别、口罩检测等功能。",
+        "categoryName": "嵌入式开发",
+        "tag": "电赛",
+        "date": "2020-09"
+      },
+      "en": {
+        "title": "2020 Electric Contest F - OpenMV Vision Solution",
+        "desc": "Summary of the 2020 National College Electronic Design Contest F, using OpenMV H7 Plus for face recognition and mask detection.",
+        "categoryName": "Embedded Dev",
+        "tag": "Contest",
+        "date": "2020-09"
+      },
+      "ja": {
+        "title": "2020 電気競技 F問題 — OpenMV ビジョンソリューション",
+        "desc": "2020年全国大学生電子設計コンテストF問題《簡易非接触温度測定と認証装置》のソリューション概要。OpenMV H7 Plusを使用して顔認識とマスク検出を実装。",
+        "categoryName": "組み込み開発",
+        "tag": "コンテスト",
+        "date": "2020-09"
+      },
+      "keywords": ["OpenMV", "电赛", "电子设计竞赛", "视觉", "人脸识别", "口罩检测", "嵌入式", "vision", "face recognition", "embedded", "電気競技", "顔認識"]
+    },
+    {
+      "id": "pn532",
+      "category": "embedded",
+      "categoryIcon": "🔧",
+      "files": {
+        "zh": "pn532-nfc-tutorial.html",
+        "en": "pn532-en.html",
+        "ja": "pn532-ja.html"
+      },
+      "zh": {
+        "title": "使用 PN532 将全加密卡复制到手环上 — NFC 校园门禁卡模拟教程",
+        "desc": "详细记录如何使用 PN532 模块和 UID 卡，将全加密校园门禁卡模拟到智能手环上，包含材料准备、破解步骤、模拟教程等完整指南。",
+        "categoryName": "嵌入式开发",
+        "tag": "NFC",
+        "date": "2021-03"
+      },
+      "en": {
+        "title": "PN532 NFC Tutorial: Clone Access Card to Smart Band",
+        "desc": "Detailed guide on using PN532 module to clone encrypted campus access cards to smart bands.",
+        "categoryName": "Embedded Dev",
+        "tag": "NFC",
+        "date": "2021-03"
+      },
+      "ja": {
+        "title": "PN532 NFCチュートリアル：全暗号化カードをスマートバンドにコピー",
+        "desc": "PN532 モジュールと UID 卡を使用して、暗号化されたキャンパス入退室カードをスマートバンドにコピーする方法の詳細ガイド。",
+        "categoryName": "組み込み開発",
+        "tag": "NFC",
+        "date": "2021-03"
+      },
+      "keywords": ["PN532", "NFC", "门禁", "卡复制", "UID", "ESP32", "Arduino", "access card", "RFID", "カード", "複製", "複製", "门禁卡"]
+    }
+  ]
+}
