@@ -14,21 +14,21 @@
         "desc": "在 cmd 使用 pip 安装 Python 库时遇到 WinError 10061 报错，原因是系统代理被软件自动开启。关闭代理设置后问题解决。",
         "categoryName": "Debug",
         "tag": "Windows",
-        "date": "2026-03"
+        "date": "2022-07-10"
       },
       "en": {
         "title": "[WinError 10061] 'Connection Refused' When Using pip — Solution",
         "desc": "Running pip install in cmd hit WinError 10061 because a software auto-enabled the system proxy. Turning off the proxy in settings fixed it immediately.",
         "categoryName": "Debug",
         "tag": "Windows",
-        "date": "2026-03"
+        "date": "2022-07-10"
       },
       "ja": {
         "title": "[WinError 10061] 「ターゲットコンピュータにより接続が拒否されました」の解決方法",
         "desc": "コマンドプロンプトでpipインストール時にWinError 10061が出たのは，软件がプロキシ設定を自动有効にしたため。Windows設定でプロキシをオフにすれば解決。",
         "categoryName": "Debug",
         "tag": "Windows",
-        "date": "2026-03"
+        "date": "2022-07-10"
       },
       "keywords": [
         "WinError",
@@ -59,21 +59,21 @@
         "desc": "写了一个冒泡排序在 VC 等编译器下没问题，在 Keil C51 上疯狂报错——很可能是变量名与 C51 关键词（如 data）重名所致，谨以此篇纪念浪费的 2 小时。",
         "categoryName": "Debug",
         "tag": "Keil",
-        "date": "2026-03"
+        "date": "2020-05-13"
       },
       "en": {
         "title": "A Common Cause of Many error C141 in Keil C51 That Passes Fine in Other Compilers",
         "desc": "A bubble sort compiled fine in VC but threw lots of error C141 in Keil C51 — caused by a variable name colliding with the C51 reserved keyword 'data'. A 2-hour lesson written in frustration.",
         "categoryName": "Debug",
         "tag": "Keil",
-        "date": "2026-03"
+        "date": "2020-05-13"
       },
       "ja": {
         "title": "Keil C51 で一堆 error C141 が出るが、他のコンパイラでは通るよくある原因",
         "desc": "VC などのコンパイラでは問題なかったバブルソートが Keil C51 では大量のエラーを出した。—— 変数名と C51 の予約キーワード（dataなど）の衝突が原因。2時間を返还想という記事。",
         "categoryName": "Debug",
         "tag": "Keil",
-        "date": "2026-03"
+        "date": "2020-05-13"
       },
       "keywords": [
         "Keil",
