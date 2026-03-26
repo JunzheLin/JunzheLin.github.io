@@ -23,17 +23,6 @@
             margin-top: -15px;
             margin-bottom: 25px;
         }
-        .post-content img[src*="placeholder"] {
-            border: 2px dashed var(--border-color);
-            background: var(--bg-secondary);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            min-height: 120px;
-        }
     </style>
 </head>
 <body data-page="blog-post" data-blog-slug="keil-c51-error">
@@ -85,14 +74,12 @@
 
             <p>比如我使用的这个 <code>data</code>，是 C51 的保留关键字：</p>
 
-            <img src="images/01-data-keyword.svg" alt="data 关键词在 Keil C51 中的高亮显示"
-                 onerror="this.outerHTML='<div style=&quot;border:2px dashed #9b59b6;background:#f5f0fa;padding:30px;text-align:center;color:#7d3c98;font-size:0.9rem;margin:20px 0;&quot;>📷 图片：data 作为 C51 关键词示意<br><small>（原始图片来自 CSDN，请手动替换）</small></div>'">
+            <img src="images/01-data-keyword.png" alt="data 关键词在 Keil C51 中的高亮显示">
             <p class="image-caption">data 是 C51 的保留关键字，高亮不明显，容易被忽略</p>
 
             <p>而我定义了一个名为 <code>data</code> 的数组，导致如下一堆 error 结果：</p>
 
-            <img src="images/02-error-output.svg" alt="Keil C51 报错信息截图"
-                 onerror="this.outerHTML='<div style=&quot;border:2px dashed #9b59b6;background:#f5f0fa;padding:30px;text-align:center;color:#7d3c98;font-size:0.9rem;margin:20px 0;&quot;>📷 图片：Keil C51 报错信息<br><small>（原始图片来自 CSDN，请手动替换）</small></div>'">
+            <img src="images/02-error-output.png" alt="Keil C51 报错信息截图">
             <p class="image-caption">大量 error C141: syntax error near '[', 容易误以为是语法错误</p>
 
             <h2>解决方法</h2>
@@ -108,14 +95,12 @@
 
             <h3>存储器类型</h3>
 
-            <img src="images/03-storage-types.svg" alt="C51 存储器类型表格"
-                 onerror="this.outerHTML='<div style=&quot;border:2px dashed #9b59b6;background:#f5f0fa;padding:30px;text-align:center;color:#7d3c98;font-size:0.9rem;margin:20px 0;&quot;>📷 图片：C51 存储器类型<br><small>（原始图片来自 CSDN，请手动替换）</small></div>'">
+            <img src="images/03-storage-types.png" alt="C51 存储器类型表格">
             <p class="image-caption">定义变量时可以省略存储器类型，C51 将按编译模式默认存储器类型</p>
 
             <h3>基本数据类型</h3>
 
-            <img src="images/04-data-types.svg" alt="C51 基本数据类型表格"
-                 onerror="this.outerHTML='<div style=&quot;border:2px dashed #9b59b6;background:#f5f0fa;padding:30px;text-align:center;color:#7d3c98;font-size:0.9rem;margin:20px 0;&quot;>📷 图片：C51 基本数据类型<br><small>（原始图片来自 CSDN，请手动替换）</small></div>'">
+            <img src="images/04-data-types.png" alt="C51 基本数据类型表格">
             <p class="image-caption">C51 支持的基本数据类型一览</p>
 
             <h3>存储种类</h3>
